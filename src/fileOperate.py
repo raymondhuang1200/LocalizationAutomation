@@ -57,6 +57,6 @@ def save_file(content, path):
         if exc.errno != errno.EEXIST:
             raise
 
-  text_file = open(path, "w+")
+  text_file = open(path, "w")
   text_file.write(content)
   text_file.close()
