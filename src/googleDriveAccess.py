@@ -17,6 +17,9 @@ import os
 import fileOperate
 import sys
 import argparse
+import execAndroidTrans
+import execiOSTrans
+import shutil
 
 #Export file name
 FILE_NAME = "language.csv"	
@@ -29,7 +32,7 @@ FILE_ID = ""
 #spreadsheet tab id
 GID_FIRST_PAGE = "0" #first tab
 gid = None #GID_FIRST_PAGE
-GID_DEFAULT = "1481489420"
+GID_DEFAULT = "316201323"
 
 # OAuth 2.0 scope that will be authorized.
 # Check https://developers.google.com/drive/scopes for all available scopes.
@@ -95,10 +98,20 @@ def main():
     credentials.authorize(http)
     drive_service = apiclient.discovery.build('drive', 'v2', http=http)
 
+    #Remove exisiting files
+    print("Removing ./out folder...")
+    shutil.rmtree('./out', ignore_errors=True)
+
+    #Export Google Spreadsheet
+    print("Exporting Google spreadsheet...")
     file = fileOperate.get_file(drive_service, FILE_ID)
     content = fileOperate.download_file(drive_service, file, gid)
     fileOperate.save_file(content, SAVE_PATH);
 
+    #Generate Language files
+    print("Generating Language files...")
+    execAndroidTrans.execAndroid()
+    execiOSTrans.execiOS()
 
 if __name__ == '__main__':
     main()
