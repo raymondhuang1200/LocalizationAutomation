@@ -4,4 +4,6 @@ languageDic = stringsFormat.supportedLanguagesDisplay()
 
 def execAndroid():
 	for lang in languageDic:
-		stringsFormat.start("-csvtoxml", languageDic[lang])
+		# print (lang, languageDic[lang])
+		if languageDic[lang] != '':
+			stringsFormat.start("-csvtoxml", languageDic[lang])

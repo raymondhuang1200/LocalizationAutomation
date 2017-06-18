@@ -23,7 +23,7 @@ def createLanguageFile(lang, content, keyIdx):
 def execiOS():
     content = stringsFormat.readOriginalCsvData()
     for idx, lang in enumerate(langAry):
-        if idx == keyIdx:
+        if idx == keyIdx or langAry[idx] == '':
             continue
         createLanguageFile(lang, content, keyIdx)    
 

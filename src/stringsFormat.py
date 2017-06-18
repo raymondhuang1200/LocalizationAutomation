@@ -25,18 +25,19 @@ folderPath = './out/values'
 xmlFilePath = '/strings.xml'
 
 KEY_IDX = 4
-LANGUAGE_ARY = ['1', '2', '3', '4', 'variable', 'eng', 'cht', 'chs', 'jpn']
+LANGUAGE_ARY = ['', '', '', '', 'variable', 'eng', 'zh-rHK', 'zh-rTW', 'zh-rCN', 'ms-rMY']
 
 def supportedLanguagesDisplay():
     langDisplayDic = {}
-    langDisplayDic['1'] = '1'
-    langDisplayDic['2'] = '2'
-    langDisplayDic['3'] = '3'
-    langDisplayDic['4'] = '4'
+    langDisplayDic['1'] = ''
+    langDisplayDic['2'] = ''
+    langDisplayDic['3'] = ''
+    langDisplayDic['4'] = ''
     langDisplayDic['English'] = 'eng'
-    langDisplayDic['Chinese traditional'] = 'cht'
-    langDisplayDic['Chinese simple'] = 'chs'
-    langDisplayDic['Japanese'] = 'jpn'
+    langDisplayDic['Chinese traditional'] = 'zh-rHK'
+    langDisplayDic['Chinese simple'] = 'zh-rTW'
+    langDisplayDic['Japanese'] = 'zh-rCN'
+    langDisplayDic['Mala'] = 'ms-rMY'   
     return langDisplayDic
 
 def supportedLanguages():
